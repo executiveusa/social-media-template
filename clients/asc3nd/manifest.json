@@ -1,0 +1,22 @@
+{
+  "client": "asc3nd",
+  "campaign": "2026-08-17-community-mentorship",
+  "webflow": {
+    "site_id": "6a818f5a23f5ab73da7ba833",
+    "page_id": "6a825345feff1ba86497e1db"
+  },
+  "grid": {
+    "publish_order": ["monday", "wednesday", "friday"],
+    "display_order": ["friday", "wednesday", "monday"]
+  },
+  "assets": {
+    "monday_drive_id": "1YeljR3ZRMb479N8Y_OVsrMpHntal1tva",
+    "wednesday_drive_id": "1MvcC066NSVh9gj8gVVdgoXQe0-7igayh",
+    "friday_drive_id": "1m0ufg4YR1cOgMjV8-HvYknvm8N00JXh7"
+  },
+  "roles": {
+    "monday": "belief",
+    "wednesday": "story",
+    "friday": "action"
+  }
+}
