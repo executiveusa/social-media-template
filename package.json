@@ -1,0 +1,1 @@
+{"name":"social-drop-factory","version":"1.0.0","private":true,"type":"module","scripts":{"walk-test":"node scripts/walk-test.mjs","verify":"node scripts/walk-test.mjs"},"engines":{"node":">=20"}}

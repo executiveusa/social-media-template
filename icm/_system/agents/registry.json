@@ -1,0 +1,11 @@
+{
+  "agents": [
+    {"id":"strategist","stage":"02_strategy","input":"01_intake","output":"02_strategy"},
+    {"id":"creator","stage":"03_create","input":"02_strategy","output":"03_create"},
+    {"id":"adapter","stage":"04_adapt","input":"03_create","output":"04_adapt"},
+    {"id":"reviewer","stage":"05_review","input":"04_adapt","output":"05_review/output"},
+    {"id":"scheduler","stage":"06_schedule","input":"05_review/output","output":"06_schedule"},
+    {"id":"publisher","stage":"07_publish","input":"06_schedule","output":"07_publish/output"},
+    {"id":"analyst","stage":"08_measure","input":"07_publish/output","output":"08_measure"}
+  ]
+}
