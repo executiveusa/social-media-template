@@ -1,0 +1,8 @@
+{
+  "instagram":{"formats":["post","reel","story","carousel"],"maxText":2200,"aspect":["1:1","4:5","9:16"]},
+  "facebook":{"formats":["post","reel","story","carousel","event"],"maxText":63206,"aspect":["1:1","4:5","9:16"]},
+  "linkedin":{"formats":["post","carousel","event","sales_pitch"],"maxText":3000,"aspect":["1:1","4:5","16:9"]},
+  "tiktok":{"formats":["reel","story","call_to_action"],"maxText":2200,"aspect":["9:16"],"requiresMedia":true},
+  "youtube":{"formats":["reel","post"],"maxText":5000,"aspect":["9:16","16:9"],"requiresMedia":true},
+  "x":{"formats":["post","sales_pitch","call_to_action"],"maxText":280,"aspect":["1:1","16:9"]}
+}
