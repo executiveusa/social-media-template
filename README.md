@@ -45,10 +45,12 @@ Production UI: `https://social-drop-factory.vercel.app`
 
 Health endpoint: `/api/health`
 
-## First tenant
+## Current tenant campaign
 
-ASC3ND First 12 event campaign is stored at:
+ASC3ND final event week campaign is stored at:
 
-`icm/campaigns/asc3nd-first-12-event/`
+`icm/campaigns/asc3nd-final-event-week/`
+
+**The First 12 belongs to New World Kids, not ASC3ND.** It must be represented as a separate New World Kids campaign/tenant when added to this engine.
 
 The reusable engine remains tenant-neutral; new customers should add campaign/tenant manifests and assets rather than fork the renderer.
