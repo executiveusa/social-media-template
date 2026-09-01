@@ -1,11 +1,13 @@
 {
-  "agents": [
-    {"id":"strategist","stage":"02_strategy","input":"01_intake","output":"02_strategy"},
-    {"id":"creator","stage":"03_create","input":"02_strategy","output":"03_create"},
-    {"id":"adapter","stage":"04_adapt","input":"03_create","output":"04_adapt"},
-    {"id":"reviewer","stage":"05_review","input":"04_adapt","output":"05_review/output"},
-    {"id":"scheduler","stage":"06_schedule","input":"05_review/output","output":"06_schedule"},
-    {"id":"publisher","stage":"07_publish","input":"06_schedule","output":"07_publish/output"},
-    {"id":"analyst","stage":"08_measure","input":"07_publish/output","output":"08_measure"}
+  "contractVersion":"2.0",
+  "agents":[
+    {"id":"intake","stage":"01_intake","input":"source + outcome + audience + CTA + constraints","output":"01_intake/output/intake.json","humanGate":"consequential claims/constraints confirmed"},
+    {"id":"strategist","stage":"02_strategy","input":"01_intake/output/intake.json","output":"02_strategy/output/strategy.json","humanGate":"strategy approved when consequential"},
+    {"id":"creator","stage":"03_create","input":"strategy + approved brand/source truth","output":"03_create/output/drop.json","humanGate":"sensitive claims remain reviewable"},
+    {"id":"adapter","stage":"04_adapt","input":"03_create/output/drop.json","output":"04_adapt/output/plan.json","humanGate":"none; deterministic transformation only"},
+    {"id":"reviewer","stage":"05_review","input":"04_adapt/output/plan.json + evidence","output":"05_review/output/approval.json","humanGate":"required before public scheduling"},
+    {"id":"scheduler","stage":"06_schedule","input":"drop + exact approval + connected integration IDs","output":"06_schedule/output/receipt.json","humanGate":"approval must already exist"},
+    {"id":"publisher","stage":"07_publish","input":"provider state + schedule receipt","output":"07_publish/output/receipt.json","humanGate":"provider/public state is authoritative"},
+    {"id":"analyst","stage":"08_measure","input":"provider post IDs + integration IDs","output":"08_measure/output/learning.json","humanGate":"human chooses which learned rules become policy"}
   ]
 }

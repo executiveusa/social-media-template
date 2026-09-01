@@ -8,7 +8,10 @@ export default async function handler(req,res){
   const {drop,approval}=req.body||{};
   const validation=validateDrop(drop);
   if(!validation.ok) return res.status(400).json(validation);
-  const variants=variantsFor(drop).filter(v=>platformCheck(drop,v.platform).ok);
+  const checked=variantsFor(drop).map(variant=>({...variant,check:platformCheck(drop,variant.platform)}));
+  const blocked=checked.filter(variant=>!variant.check.ok);
+  if(blocked.length) return res.status(409).json({error:'platform_validation_failed',blocked:blocked.map(({platform,check})=>({platform,error:check.error}))});
+  const variants=checked.map(({check,...variant})=>variant);
   const result=await scheduleWithPostiz({drop,variants,approval});
   return res.status(result.status).json(result.body);
 }

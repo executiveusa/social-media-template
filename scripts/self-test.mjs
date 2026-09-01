@@ -1,0 +1,23 @@
+import assert from 'node:assert/strict';
+import {validateDrop,variantsFor} from '../engine.js';
+import {planEditorial} from '../lib/planner.js';
+import {buildPostizPosts,resolveIntegration,validateApproval} from '../lib/postiz.js';
+
+const plan=planEditorial({source:{id:'article-1',type:'article',title:'A better operating system',url:'https://example.com/a',excerpt:'A concise proof-led article.'},distribution:{platforms:['linkedin','x'],scheduledAt:'2026-09-02T16:00:00Z',targets:{linkedin:{integrationId:'li-1'},x:{integrationId:'x-1'}}}});
+assert.equal(plan.validation.ok,true);
+assert.equal(plan.humanApprovalRequired,true);
+assert.equal(plan.drop.cta.url,'https://example.com/a');
+assert.equal(variantsFor(plan.drop).length,2);
+assert.equal(validateDrop({...plan.drop,platforms:['x','x']}).ok,false);
+assert.equal(validateApproval({approved:true,approvedBy:'owner',approvedAt:'2026-09-01T03:00:00Z'}).ok,true);
+assert.equal(validateApproval({approved:true}).ok,false);
+const integrations=[{id:'li-1',identifier:'linkedin',name:'Founder'},{id:'x-1',identifier:'x',name:'Brand'}];
+assert.equal(resolveIntegration(integrations,'x',{}).integration.id,'x-1');
+const built=buildPostizPosts({drop:plan.drop,variants:plan.variants.map(({check,...v})=>v),integrations});
+assert.equal(built.ok,true);
+assert.equal(built.posts[0].integration.id,'li-1');
+assert.equal(Array.isArray(built.posts[0].value),true);
+assert.equal(typeof built.posts[0].settings.__type,'string');
+const ambiguous=resolveIntegration([{id:'1',identifier:'x'},{id:'2',identifier:'x'}],'x',{});
+assert.equal(ambiguous.error,'multiple_integrations_require_target');
+console.log('SELF TEST PASS');
