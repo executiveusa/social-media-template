@@ -1,5 +1,6 @@
 {
   "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"social-drop.schema.json",
   "title":"Social Drop",
   "type":"object",
   "required":["id","type","message","platforms"],
@@ -7,9 +8,11 @@
     "id":{"type":"string","minLength":1},
     "type":{"enum":["post","reel","story","carousel","sales_pitch","event","fundraiser","testimonial","call_to_action"]},
     "message":{"type":"string","minLength":1},
-    "platforms":{"type":"array","minItems":1,"items":{"enum":["instagram","facebook","linkedin","tiktok","youtube","x"]}},
-    "scheduledAt":{"type":["string","null"]},
-    "media":{"type":["string","object","null"]},
-    "cta":{"type":["object","null"],"properties":{"label":{"type":"string"},"url":{"type":"string"}}}
-  }
+    "platforms":{"type":"array","minItems":1,"uniqueItems":true,"items":{"enum":["instagram","facebook","linkedin","tiktok","youtube","x"]}},
+    "scheduledAt":{"type":"string","format":"date-time"},
+    "cta":{"type":"object","properties":{"label":{"type":"string"},"url":{"type":"string"}}},
+    "targets":{"type":"object","additionalProperties":{"type":"object","properties":{"integrationId":{"type":"string"}}}},
+    "platformSettings":{"type":"object"}
+  },
+  "additionalProperties":true
 }

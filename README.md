@@ -1,91 +1,36 @@
 # Social Drop Factory
 
-Reusable, ICM-native social campaign engine for scheduled posts, reels, stories, carousels, sales pitches, event pushes, fundraisers, testimonials and calls to action.
+A governed social distribution API, CLI, MCP surface, and ICM workspace for agents. It turns one source of truth—especially Pauli Press/blog articles—into platform-specific social plans, requires exact human approval, executes through Postiz, preserves receipts, and reads analytics.
 
-## Architecture
+## What this repo is
+- **API** for planning, validation, channel discovery, scheduling, and analytics.
+- **CLI** that agents can call with structured JSON.
+- **MCP** surface for tool-calling agents.
+- **ICM** filesystem contract that a cold agent can walk without relying on memory.
+- **Preview UI** for humans. It does not possess publishing authority.
 
-- **GitHub** is source of truth.
-- **ICM folders** carry campaign state and routing.
-- **Cold-agent Walk Test** is the agent admission gate.
-- **Canonical Social Drop** is adapted per platform rather than authored separately for every network.
-- **Human approval** is mandatory before public scheduling/publishing.
-- **Postiz** is the publishing adapter.
-- **Vercel** hosts the operations UI, REST API and MCP endpoint.
-- **CLI** gives local agents and operators a scriptable connection to the same API.
-
-Supported platform contracts: Instagram, Facebook, LinkedIn, TikTok, YouTube and X.
-
-## ICM pipeline
-
-`01_intake → 02_strategy → 03_create → 04_adapt → 05_review → 06_schedule → 07_publish → 08_measure`
-
-Campaign truth lives in files under `icm/campaigns/`. Agents do not own hidden state.
-
-## Connections
-
-### REST API
-
-Base: `https://social-drop-factory.vercel.app`
-
-- `GET /api/v1/metadata`
-- `POST /api/v1/validate`
-- `POST /api/v1/adapt`
-- `POST /api/v1/schedule`
-
-Protected endpoints require `Authorization: Bearer <SOCIAL_DROP_API_KEY>` (or `x-api-key`).
-
-### MCP
-
-Remote JSON-RPC endpoint: `POST /api/mcp`
-
-Tools:
-
-- `social_drop_metadata`
-- `validate_social_drop`
-- `adapt_social_drop`
-- `schedule_social_drop`
-
-The MCP endpoint uses the same API key and preserves the human approval requirement for scheduling.
-
-### CLI
-
-```bash
-npm run cli -- metadata
-npm run cli -- validate --file drop.json
-npm run cli -- adapt --file drop.json
-npm run cli -- schedule --file drop.json --approval approval.json
-npm run cli -- mcp-info
-```
-
-Environment:
-
-```text
-SOCIAL_DROP_API_URL=https://social-drop-factory.vercel.app
-SOCIAL_DROP_API_KEY=<secret>
-POSTIZ_API_URL=https://api.postiz.com
-POSTIZ_API_KEY=<secret>
-```
+## What this repo is not
+It is not the CMS, not another orchestrator, not a browser shell executor, and not a replacement for human approval.
 
 ## Verify
-
 ```bash
 npm run verify
 ```
 
-This runs the Walk Test plus API/MCP/CLI production wiring checks. CI runs the same gate on pull requests and pushes to `main`.
+## CLI
+```bash
+export SOCIAL_DROP_API_URL=https://your-deploy.example
+export SOCIAL_DROP_API_KEY=...
+node bin/social-drop.mjs doctor
+node bin/social-drop.mjs integrations
+node bin/social-drop.mjs plan --file editorial.json
+node bin/social-drop.mjs schedule --file drop.json --approval approval.json
+```
 
-## Production
+## Server environment
+- `SOCIAL_DROP_API_KEY` — protects agent/control API.
+- `POSTIZ_API_KEY` — server-side Postiz key only.
+- `POSTIZ_API_URL` — default `https://api.postiz.com`.
+- `SOCIAL_DROP_API_URL` — CLI target.
 
-Production UI: `https://social-drop-factory.vercel.app`
-
-Health endpoint: `/api/health`
-
-## Current tenant campaign
-
-ASC3ND final event week campaign is stored at:
-
-`icm/campaigns/asc3nd-final-event-week/`
-
-**The First 12 belongs to New World Kids, not ASC3ND.** It must be represented as a separate New World Kids campaign/tenant when added to this engine.
-
-The reusable engine remains tenant-neutral; new customers should add campaign/tenant manifests and assets rather than fork the renderer.
+See `docs/API.md`, `docs/PAULI_PRESS_INTEGRATION.md`, `AGENTS.md`, and `icm/CONTEXT.md`.

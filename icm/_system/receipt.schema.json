@@ -1,0 +1,9 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"receipt.schema.json",
+  "title":"Social Execution Receipt",
+  "type":"object",
+  "required":["receiptId","createdAt","action","provider","dropId","ok"],
+  "properties":{"receiptId":{"type":"string"},"createdAt":{"type":"string","format":"date-time"},"action":{"type":"string"},"provider":{"type":"string"},"dropId":{"type":"string"},"ok":{"type":"boolean"},"providerStatus":{"type":"number"}},
+  "additionalProperties":true
+}

@@ -1,0 +1,9 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"approval.schema.json",
+  "title":"Exact Artifact Approval",
+  "type":"object",
+  "required":["approved","approvedBy","approvedAt"],
+  "properties":{"approved":{"const":true},"approvedBy":{"type":"string","minLength":1},"approvedAt":{"type":"string","format":"date-time"},"artifactId":{"type":"string"},"notes":{"type":"string"}},
+  "additionalProperties":true
+}
