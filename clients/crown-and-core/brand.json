@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0",
+  "clientId": "crown-and-core",
+  "creativeTerritory": "technology-care",
+  "governingIdea": "Before they book, let them understand what the Crown & Core experience involves.",
+  "typography": {
+    "display": "Canela",
+    "functional": "Söhne",
+    "demoOnly": true
+  },
+  "palette": {
+    "ink": "#171717",
+    "paper": "#F4F4F1",
+    "metal": "#8B7650",
+    "line": "#D8D8D2"
+  },
+  "imageLanguage": [
+    "real provider",
+    "real treatment room",
+    "machine details",
+    "consultation moments",
+    "Bellevue context"
+  ],
+  "motionLanguage": [
+    "slow reveal",
+    "crop transition",
+    "real footage first",
+    "no decorative bounce"
+  ],
+  "antiReferences": [
+    "generic beige medspa",
+    "stock beauty portraits",
+    "glassmorphism",
+    "AI women",
+    "exaggerated before-and-after"
+  ]
+}
