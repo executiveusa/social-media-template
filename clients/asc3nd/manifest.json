@@ -1,5 +1,7 @@
 {
+  "schemaVersion": "3.0",
   "client": "asc3nd",
+  "name": "ASC3ND",
   "campaign": "2026-08-17-community-mentorship",
   "webflow": {
     "site_id": "6a818f5a23f5ab73da7ba833",
@@ -15,8 +17,8 @@
     "friday_drive_id": "1m0ufg4YR1cOgMjV8-HvYknvm8N00JXh7"
   },
   "roles": {
-    "monday": "belief",
-    "wednesday": "story",
-    "friday": "action"
+    "monday": {"systemRole":"learn","clientRole":"belief"},
+    "wednesday": {"systemRole":"see","clientRole":"story"},
+    "friday": {"systemRole":"experience","clientRole":"action"}
   }
 }
