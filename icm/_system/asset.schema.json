@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Social Drops Asset",
+  "type": "object",
+  "required": [
+    "assetId",
+    "type",
+    "source",
+    "rights",
+    "approved"
+  ],
+  "properties": {
+    "assetId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "type": {
+      "enum": [
+        "image",
+        "video",
+        "audio",
+        "document",
+        "graphic"
+      ]
+    },
+    "source": {
+      "type": "string"
+    },
+    "rights": {
+      "type": "string"
+    },
+    "approved": {
+      "type": "boolean"
+    },
+    "campaigns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
