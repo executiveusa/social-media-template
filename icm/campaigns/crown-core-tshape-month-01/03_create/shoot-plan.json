@@ -1,0 +1,49 @@
+{
+  "objective": "Capture the minimum real-world footage and photography needed to produce the 12-post month.",
+  "captureGroups": [
+    {
+      "name": "location",
+      "shots": [
+        "exterior",
+        "entrance",
+        "reception",
+        "treatment room"
+      ]
+    },
+    {
+      "name": "provider",
+      "shots": [
+        "provider portrait",
+        "consultation moment",
+        "machine setup",
+        "direct-to-camera answers"
+      ]
+    },
+    {
+      "name": "tshape2",
+      "shots": [
+        "machine wide",
+        "controls",
+        "handpiece detail",
+        "session wide",
+        "session close detail"
+      ]
+    },
+    {
+      "name": "experience",
+      "shots": [
+        "arrival",
+        "consultation",
+        "room transition",
+        "treatment setup",
+        "post-session conversation"
+      ]
+    }
+  ],
+  "formats": [
+    "9:16 video",
+    "4:5 photo",
+    "1:1 crop-safe"
+  ],
+  "rule": "Reuse capture intelligently; do not reshoot the same proof for every post."
+}
