@@ -1,36 +1,56 @@
-# Social Drop Factory
+# Social Drops
 
-A governed social distribution API, CLI, MCP surface, and ICM workspace for agents. It turns one source of truth—especially Pauli Press/blog articles—into platform-specific social plans, requires exact human approval, executes through Postiz, preserves receipts, and reads analytics.
+A governed social campaign operating system.
 
-## What this repo is
-- **API** for planning, validation, channel discovery, scheduling, and analytics.
-- **CLI** that agents can call with structured JSON.
-- **MCP** surface for tool-calling agents.
-- **ICM** filesystem contract that a cold agent can walk without relying on memory.
-- **Preview UI** for humans. It does not possess publishing authority.
+Social Drops turns client goals, source material, real-world assets, and prior results into an approved campaign, explains the plan visually, adapts it by platform, publishes through Postiz after explicit human approval, preserves receipts, and feeds analytics into the next cycle.
 
-## What this repo is not
-It is not the CMS, not another orchestrator, not a browser shell executor, and not a replacement for human approval.
+## Core editorial system
+
+`Learn → See → Experience`
+
+- Monday — **Learn**: answer one useful question.
+- Wednesday — **See**: show the real person, place, product, treatment, event, or process.
+- Friday — **Experience**: show what engaging actually involves and what happens next.
+
+Publishing order: `Monday → Wednesday → Friday`  
+Instagram row after Friday: `Friday | Wednesday | Monday`
+
+## Campaign loop
+
+`01_intake → 02_strategy → 03_create → 04_adapt → 05_review → 06_schedule → 07_publish → 08_measure`
+
+The browser is a preview and approval surface. It never owns publishing authority.
+
+## Clients
+
+- `clients/asc3nd` — existing ASC3ND implementation.
+- `clients/crown-and-core` — second isolated client proof using T-Shape 2 Month 1.
+
+Shared system logic does not imply shared brand language, typography, imagery, claims, or calls to action.
+
+## Interfaces
+
+- REST API
+- CLI
+- MCP
+- ICM filesystem contract
+- Human preview UI
+
+## Human gate
+
+No generated draft publishes by itself. Scheduling requires exact approval metadata for the artifact being scheduled.
 
 ## Verify
+
 ```bash
 npm run verify
 ```
 
-## CLI
-```bash
-export SOCIAL_DROP_API_URL=https://your-deploy.example
-export SOCIAL_DROP_API_KEY=...
-node bin/social-drop.mjs doctor
-node bin/social-drop.mjs integrations
-node bin/social-drop.mjs plan --file editorial.json
-node bin/social-drop.mjs schedule --file drop.json --approval approval.json
-```
-
 ## Server environment
-- `SOCIAL_DROP_API_KEY` — protects agent/control API.
-- `POSTIZ_API_KEY` — server-side Postiz key only.
-- `POSTIZ_API_URL` — default `https://api.postiz.com`.
-- `SOCIAL_DROP_API_URL` — CLI target.
 
-See `docs/API.md`, `docs/PAULI_PRESS_INTEGRATION.md`, `AGENTS.md`, and `icm/CONTEXT.md`.
+- `SOCIAL_DROP_API_KEY`
+- `POSTIZ_API_KEY`
+- `POSTIZ_API_URL` (defaults to `https://api.postiz.com`)
+- `SOCIAL_DROP_API_URL`
+
+Start with `AGENTS.md` and `icm/CONTEXT.md`.
