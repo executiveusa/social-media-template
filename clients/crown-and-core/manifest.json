@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "3.0",
+  "client": "crown-and-core",
+  "name": "Crown & Core",
+  "industry": "medspa",
+  "location": "Bellevue, Washington",
+  "campaign": "crown-core-tshape-month-01",
+  "primaryChannels": [
+    "instagram",
+    "facebook"
+  ],
+  "grid": {
+    "publishOrder": [
+      "monday",
+      "wednesday",
+      "friday"
+    ],
+    "displayOrder": [
+      "friday",
+      "wednesday",
+      "monday"
+    ]
+  },
+  "roles": {
+    "monday": {
+      "systemRole": "learn",
+      "clientRole": "learn"
+    },
+    "wednesday": {
+      "systemRole": "see",
+      "clientRole": "see"
+    },
+    "friday": {
+      "systemRole": "experience",
+      "clientRole": "experience"
+    }
+  },
+  "approval": {
+    "required": true,
+    "claimReview": true
+  },
+  "preview": {
+    "type": "interactive",
+    "mobileFirst": true
+  }
+}

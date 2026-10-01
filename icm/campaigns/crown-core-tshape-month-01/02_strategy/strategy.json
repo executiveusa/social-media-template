@@ -1,0 +1,27 @@
+{
+  "governingIdea": "Before they book, let them understand what the Crown & Core experience involves.",
+  "framework": [
+    "learn",
+    "see",
+    "experience"
+  ],
+  "monthlyNarrative": [
+    "What is it?",
+    "What does it feel like?",
+    "Is it for me?",
+    "Why Crown & Core?"
+  ],
+  "grid": {
+    "publishOrder": [
+      "monday",
+      "wednesday",
+      "friday"
+    ],
+    "displayOrder": [
+      "friday",
+      "wednesday",
+      "monday"
+    ]
+  },
+  "approvalRequired": true
+}

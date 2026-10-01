@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0",
+  "social": [
+    "reach",
+    "views",
+    "watchTime",
+    "profileVisits",
+    "saves",
+    "shares",
+    "comments",
+    "dms",
+    "linkClicks",
+    "follows"
+  ],
+  "business": [
+    "websiteVisits",
+    "consultationRequests",
+    "bookings",
+    "googleActions",
+    "calls",
+    "directions",
+    "reviews"
+  ],
+  "attributionRule": "Report observed changes separately from claimed causation."
+}

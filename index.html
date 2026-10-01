@@ -1,13 +1,150 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f4f1e9"><meta name="description" content="Social Drop Factory: governed social distribution for Pauli Press and autonomous agents."><title>Social Drop Factory</title><link rel="stylesheet" href="styles.css"></head>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#111111">
+  <meta name="description" content="Social Drops: governed campaign planning, approval, distribution, receipts, analytics, and learning.">
+  <title>Social Drops</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-<header class="topbar"><a class="brand" href="#top" aria-label="Social Drop Factory home"><span class="mark">SD</span><span>Social Drop Factory</span></a><div class="topmeta"><span>ICM v2</span><span class="status-dot" aria-hidden="true"></span><span>Preview surface</span></div></header>
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="Social Drops home"><span class="mark">SD</span><span>Social Drops</span></a>
+  <div class="top-actions">
+    <label class="client-label" for="clientSelect">Client</label>
+    <select id="clientSelect" aria-label="Choose client"></select>
+    <span class="version">v3</span>
+  </div>
+</header>
+
 <main id="top">
-<section class="intro"><p class="kicker">PAULI PRESS / DISTRIBUTION</p><h1>Publish less.<br><em>Mean more.</em></h1><p class="lede">One source of truth becomes platform-native social work. Agents can plan it. Humans approve it. The server executes it. Receipts prove it.</p><div class="boundary"><span>Browser</span><strong>Preview only</strong><span>API / CLI / MCP</span><strong>Governed execution</strong></div></section>
-<section class="studio" aria-label="Social drop composer">
-<div class="composer panel"><div class="section-head"><div><p class="kicker">COMPOSE</p><h2>Canonical drop</h2></div><span id="validation" class="pill">Checking</span></div>
-<label>Content type<select id="type"></select></label><label>Core message<textarea id="message" rows="6" placeholder="Write the one thing every platform should preserve."></textarea></label><div class="row"><label>CTA URL<input id="cta" type="url" placeholder="https://"></label><label>Schedule<input id="schedule" type="datetime-local"></label></div><fieldset><legend>Platforms</legend><div id="platforms" class="platforms"></div></fieldset><div class="actions"><button id="copyBtn">Copy agent payload</button><button id="resetBtn" class="quiet">Reset</button></div><p id="copyState" class="microcopy">Public scheduling is intentionally unavailable in the browser.</p></div>
-<div class="preview-column"><div class="section-head"><div><p class="kicker">ADAPT</p><h2>Platform cuts</h2></div><span class="count" id="previewCount"></span></div><div id="previews" class="previews"></div></div>
-</section>
-<section class="proof panel"><div><p class="kicker">WALK TEST</p><h2>Any agent should know what happens next.</h2></div><ol><li><span>01</span>Plan from source truth</li><li><span>02</span>Validate and adapt</li><li><span>03</span>Discover real channels</li><li><span>04</span>Stop for exact approval</li><li><span>05</span>Schedule and preserve receipt</li><li><span>06</span>Measure and learn</li></ol></section>
-</main><script type="module" src="app.js"></script></body></html>
+  <section class="hero">
+    <div>
+      <h1>Plan. Approve.<br>Publish. Learn.</h1>
+    </div>
+    <div class="hero-copy">
+      <p>One campaign record moves from source truth to a 30-day plan, production, approval, platform adaptation, publishing receipts, and measurement.</p>
+      <p class="guardrail">The browser can explain and prepare work. Publishing stays behind the governed API, CLI, MCP, and Postiz approval path.</p>
+    </div>
+  </section>
+
+  <section class="client-bar" aria-live="polite">
+    <div>
+      <span class="meta">ACTIVE CLIENT</span>
+      <strong id="clientName">Loading…</strong>
+    </div>
+    <div>
+      <span class="meta">CAMPAIGN</span>
+      <strong id="campaignName">Loading…</strong>
+    </div>
+    <div>
+      <span class="meta">FRAMEWORK</span>
+      <strong>Learn · See · Experience</strong>
+    </div>
+  </section>
+
+  <nav class="tabs" aria-label="Campaign views">
+    <button class="tab active" data-view="workflow">Workflow</button>
+    <button class="tab" data-view="strategy">30-day plan</button>
+    <button class="tab" data-view="grid">Grid</button>
+    <button class="tab" data-view="production">Production</button>
+    <button class="tab" data-view="approval">Approval</button>
+    <button class="tab" data-view="distribution">Distribution</button>
+  </nav>
+
+  <section id="view-workflow" class="view active">
+    <div class="section-heading">
+      <h2>One campaign. Eight stages.</h2>
+      <p>Each stage creates evidence for the next one. The system does not jump from an idea directly to publishing.</p>
+    </div>
+    <div id="workflow" class="workflow"></div>
+  </section>
+
+  <section id="view-strategy" class="view">
+    <div class="section-heading">
+      <h2 id="strategyTitle">The first 30 days</h2>
+      <p id="strategyObjective"></p>
+    </div>
+    <div class="framework-line">
+      <span><b>MON</b> Learn</span>
+      <span><b>WED</b> See</span>
+      <span><b>FRI</b> Experience</span>
+    </div>
+    <div id="weeks" class="weeks"></div>
+  </section>
+
+  <section id="view-grid" class="view">
+    <div class="section-heading">
+      <h2>Published one way. Displayed another.</h2>
+      <p>Monday, Wednesday, Friday. Instagram puts the newest post first, so the completed row reads Friday, Wednesday, Monday.</p>
+    </div>
+    <div class="grid-explain">
+      <div><span class="meta">PUBLISH</span><strong>Monday → Wednesday → Friday</strong></div>
+      <div><span class="meta">DISPLAY</span><strong>Friday | Wednesday | Monday</strong></div>
+    </div>
+    <div id="instagramGrid" class="instagram-grid"></div>
+    <p class="note">Each post must work by itself. The grid gives the month structure; it is not a puzzle image.</p>
+  </section>
+
+  <section id="view-production" class="view">
+    <div class="section-heading">
+      <h2>Production plan</h2>
+      <p>Plan the month first, then derive the minimum real-world capture needed to produce it.</p>
+    </div>
+    <div id="productionPlan" class="production"></div>
+  </section>
+
+  <section id="view-approval" class="view">
+    <div class="section-heading">
+      <h2>Human gate</h2>
+      <p>Nothing public happens until the exact campaign artifact is approved.</p>
+    </div>
+    <div class="approval-layout">
+      <div class="approval-list">
+        <div><span>Strategy</span><strong>Ready for review</strong></div>
+        <div><span>Copy</span><strong>Pending final assets</strong></div>
+        <div><span>Claims</span><strong id="claimsState">Client rule applies</strong></div>
+        <div><span>Assets</span><strong>Pending production</strong></div>
+        <div><span>Publishing</span><strong>Blocked until exact approval</strong></div>
+      </div>
+      <div class="approval-action">
+        <h3>Approval artifact</h3>
+        <p>The final approval records who approved it, when, what campaign it covers, and the exact artifact hash.</p>
+        <button id="copyApproval">Copy approval template</button>
+        <p id="approvalStatus" class="microcopy"></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-distribution" class="view">
+    <div class="section-heading">
+      <h2>Distribution handoff</h2>
+      <p>Approved campaign posts become canonical Social Drops, then adapt to each connected platform.</p>
+    </div>
+    <div class="handoff-flow">
+      <span>Campaign post</span><i>→</i><span>Validate</span><i>→</i><span>Adapt</span><i>→</i><span>Choose integration</span><i>→</i><span>Schedule</span><i>→</i><span>Receipt</span>
+    </div>
+    <div class="distribution-columns">
+      <div>
+        <h3>Browser</h3>
+        <p>Preview campaign, inspect grid, review production needs, copy exact payloads.</p>
+      </div>
+      <div>
+        <h3>Governed execution</h3>
+        <p>API, CLI, and MCP validate, select real channel integrations, schedule through Postiz, preserve receipts, and read analytics.</p>
+      </div>
+    </div>
+    <button id="copyCampaign">Copy campaign JSON</button>
+    <p id="copyStatus" class="microcopy"></p>
+  </section>
+</main>
+
+<footer>
+  <span>Social Drops</span>
+  <span>ICM: intake → strategy → create → adapt → review → schedule → publish → measure</span>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

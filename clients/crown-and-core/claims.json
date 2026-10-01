@@ -1,0 +1,6 @@
+{
+  "schemaVersion": "1.0",
+  "policy": "Treatment claims must be sourced from approved manufacturer/FDA language and approved by Crown & Core before publication.",
+  "claims": [],
+  "defaultStatus": "blocked_until_verified"
+}

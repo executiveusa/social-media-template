@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Social Drops Client",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "client",
+    "name",
+    "grid",
+    "roles"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string"
+    },
+    "client": {
+      "type": "string",
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "industry": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "grid": {
+      "type": "object",
+      "required": [
+        "publishOrder",
+        "displayOrder"
+      ]
+    },
+    "roles": {
+      "type": "object"
+    }
+  }
+}

@@ -1,9 +1,15 @@
 {
-  "name":"social-drop-factory",
-  "version":"2.0.0",
+  "name":"social-drops",
+  "version":"3.0.0",
   "private":true,
   "type":"module",
   "bin":{"social-drop":"bin/social-drop.mjs"},
-  "scripts":{"walk-test":"node scripts/walk-test.mjs","self-test":"node scripts/self-test.mjs","verify":"node scripts/walk-test.mjs && node scripts/self-test.mjs && node scripts/verify.mjs","cli":"node bin/social-drop.mjs"},
+  "scripts":{
+    "walk-test":"node scripts/walk-test.mjs",
+    "self-test":"node scripts/self-test.mjs",
+    "strategy-test":"node scripts/strategy-test.mjs",
+    "verify":"node scripts/walk-test.mjs && node scripts/self-test.mjs && node scripts/strategy-test.mjs && node scripts/verify.mjs",
+    "cli":"node bin/social-drop.mjs"
+  },
   "engines":{"node":">=20"}
 }

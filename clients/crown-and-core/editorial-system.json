@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1.0",
+  "framework": [
+    "learn",
+    "see",
+    "experience"
+  ],
+  "cadence": [
+    {
+      "day": "monday",
+      "role": "learn",
+      "purpose": "Answer one useful question clearly."
+    },
+    {
+      "day": "wednesday",
+      "role": "see",
+      "purpose": "Show the real person, place, treatment, product, or process."
+    },
+    {
+      "day": "friday",
+      "role": "experience",
+      "purpose": "Show what engaging with Crown & Core actually involves and what happens next."
+    }
+  ],
+  "weeks": [
+    {
+      "week": 1,
+      "question": "What is it?"
+    },
+    {
+      "week": 2,
+      "question": "What does it feel like?"
+    },
+    {
+      "week": 3,
+      "question": "Is it for me?"
+    },
+    {
+      "week": 4,
+      "question": "Why Crown & Core?"
+    }
+  ]
+}
