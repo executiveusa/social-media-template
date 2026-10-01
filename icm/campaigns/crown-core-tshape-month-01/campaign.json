@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "3.0",
+  "id": "crown-core-tshape-month-01",
+  "clientId": "crown-and-core",
+  "status": "strategy_ready",
+  "objective": "Help prospective clients understand T-Shape 2 and the Crown & Core visit before booking.",
+  "traffic": [
+    "meta_ads",
+    "organic"
+  ],
+  "weeks": [
+    {
+      "week": 1,
+      "question": "What is it?",
+      "posts": [
+        {
+          "day": "monday",
+          "role": "learn",
+          "topic": "What is T-Shape 2?",
+          "format": "carousel"
+        },
+        {
+          "day": "wednesday",
+          "role": "see",
+          "topic": "Meet T-Shape 2",
+          "format": "reel"
+        },
+        {
+          "day": "friday",
+          "role": "experience",
+          "topic": "What happens when you first ask about T-Shape 2?",
+          "format": "carousel"
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "question": "What does it feel like?",
+      "posts": [
+        {
+          "day": "monday",
+          "role": "learn",
+          "topic": "How does a T-Shape 2 session work?",
+          "format": "carousel"
+        },
+        {
+          "day": "wednesday",
+          "role": "see",
+          "topic": "What a real session looks like",
+          "format": "reel"
+        },
+        {
+          "day": "friday",
+          "role": "experience",
+          "topic": "What can you expect during the appointment?",
+          "format": "faq"
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "question": "Is it for me?",
+      "posts": [
+        {
+          "day": "monday",
+          "role": "learn",
+          "topic": "What questions should you bring to a consultation?",
+          "format": "carousel"
+        },
+        {
+          "day": "wednesday",
+          "role": "see",
+          "topic": "Who asks us about T-Shape 2?",
+          "format": "reel"
+        },
+        {
+          "day": "friday",
+          "role": "experience",
+          "topic": "Your first visit, step by step",
+          "format": "carousel"
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "question": "Why Crown & Core?",
+      "posts": [
+        {
+          "day": "monday",
+          "role": "learn",
+          "topic": "Technology is only part of the treatment",
+          "format": "post"
+        },
+        {
+          "day": "wednesday",
+          "role": "see",
+          "topic": "Inside Crown & Core",
+          "format": "reel"
+        },
+        {
+          "day": "friday",
+          "role": "experience",
+          "topic": "Start with a conversation",
+          "format": "cta"
+        }
+      ]
+    }
+  ],
+  "next": "review_strategy"
+}
